@@ -240,6 +240,7 @@ function getTasks() {
     newTask.classList.add("task-object");
     if (task.status === COMPLETED) {
       taskDiv.classList.add("completed-text");
+      taskDiv.classList.remove("notCompleted-text");
     }
     taskDiv.appendChild(newTask);
 
