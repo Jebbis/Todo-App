@@ -96,7 +96,7 @@ function deleteStatus(e) {
 function filter(e) {
   // Show not done tasks
   if (e.target.classList.contains("notDone")) {
-    e.target.style.borderColor = "var(--red);"
+    e.target.style.borderColor = 'var(--red)';
     for (const i of listOfNotDoneTasks) {
       i.style.display = "flex";
     }
