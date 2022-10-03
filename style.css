@@ -52,8 +52,7 @@ form input {
 }
 
 form button {
-  /* background: linear-gradient(95.24deg, #cb2d3e 1.83%, #e6574d 107.81%); */
-  background: var(--red);
+  background: linear-gradient(95.24deg, #cb2d3e 1.83%, #e6574d 107.81%);
   border: 1px solid transparent;
   font-size: 1.5rem;
   cursor: pointer;
