@@ -96,10 +96,10 @@ function deleteStatus(e) {
 function filter(e) {
   // Show not done tasks
   if (e.target.classList.contains("notDone")) {
-    // for (const i of activeFilter) {
-    //   i.classList.remove("activeFilter");
-    // }
-    // e.target.classList.add("activeFilter");
+     for (const i of activeFilter) {
+       i.classList.remove("activeFilter");
+     }
+     e.target.classList.add("activeFilter");
     for (const i of listOfNotDoneTasks) {
       i.style.display = "flex";
     }
