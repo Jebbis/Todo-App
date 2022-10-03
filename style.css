@@ -1,0 +1,211 @@
+:root {
+  --red: #ef695f;
+  --green: #24af7d;
+  --black: #1e1e1e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  width: 100%;
+}
+
+body {
+  background-color: var(--black);
+  color: white;
+  min-height: 100vh;
+}
+
+header {
+  font-size: 2.5rem;
+}
+
+header,
+form {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form button,
+form input {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 10px;
+  color: white;
+}
+
+.new-task {
+  padding: 1rem;
+}
+
+form button {
+  background: linear-gradient(95.24deg, #cb2d3e 1.83%, #e6574d 107.81%);
+  border: 1px solid transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  border: 1px solid whitesmoke;
+}
+
+form input {
+  border: 1px solid #ffffff;
+  background-color: var(--black);
+  font-size: 1rem;
+  min-width: 320px;
+  width: 700px;
+}
+
+.task-container,
+.task-filter,
+.testi,
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-list {
+  list-style: none;
+  min-width: 400px;
+}
+
+.task,
+.filter {
+  border: 1px solid #ffffff;
+  background-color: var(--black);
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+}
+
+.task li {
+  flex: 1;
+}
+
+.delete-button {
+  background-color: var(--black);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.delete-button:hover {
+  color: gray;
+}
+
+.fa-trash,
+.fa,
+.fa-2x {
+  pointer-events: none;
+}
+
+.complete-button {
+  border-radius: 90px;
+  width: 25px;
+  height: 25px;
+  background: var(--red);
+  border-color: transparent;
+  padding: 0.5rem;
+  margin: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+
+.complete-button:hover {
+  border: 1px solid var(--black);
+}
+
+.uncompleted {
+  background-color: var(--red);
+}
+
+.completed-text {
+  text-decoration: line-through;
+  border-color: rgba(255, 255, 255, 0.288);
+  color: rgba(255, 255, 255, 0.288);
+}
+
+.uncompleted-temp {
+  text-decoration: none;
+  border-color: white;
+  color: white;
+  transition: none;
+}
+
+.completed {
+  background-color: var(--green);
+}
+
+.filter {
+  color: white;
+  cursor: pointer;
+}
+
+.filter:hover {
+  border-color: var(--red);
+}
+
+.testiNappi {
+  cursor: pointer;
+}
+
+.errorText {
+  color: var(--red);
+  visibility: hidden;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding-left: 5vh;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.dropdown-content button {
+  background-color: var(--black);
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid;
+  margin: 1px;
+}
+
+.dropdown-content button:hover {
+  border: solid 2px;
+  border-color: var(--red);
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
