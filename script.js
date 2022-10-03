@@ -110,6 +110,10 @@ function filter(e) {
     // Show done tasks
   }
   if (e.target.classList.contains("done")) {
+    for (const i of activeFilter) {
+      i.classList.remove("activeFilter");
+    }
+    e.target.classList.add("activeFilter");
     for (const i of listOfNotDoneTasks) {
       i.style.display = "none";
     }
@@ -120,6 +124,10 @@ function filter(e) {
     // Show all tasks
   }
   if (e.target.classList.contains("all")) {
+    for (const i of activeFilter) {
+      i.classList.remove("activeFilter");
+    }
+    e.target.classList.add("activeFilter");
     for (const i of listOfDoneTasks) {
       i.classList.remove("uncompleted-temp");
     }
