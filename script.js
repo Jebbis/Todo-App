@@ -8,6 +8,7 @@ const taskCounter = document.querySelector(".taskCounter");
 const clearAllTasks = document.querySelector(".clearAllTasks");
 const clearDoneTasks = document.querySelector(".clearDoneTasks");
 
+
 taskSubmit.addEventListener("click", addTask);
 taskList.addEventListener("click", deleteStatus);
 taskFilter.addEventListener("click", filter);
@@ -95,6 +96,7 @@ function deleteStatus(e) {
 function filter(e) {
   // Show not done tasks
   if (e.target.classList.contains("notDone")) {
+    e.target.style.borderColor = "red";
     for (const i of listOfNotDoneTasks) {
       i.style.display = "flex";
     }

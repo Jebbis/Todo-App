@@ -168,6 +168,14 @@ form input {
   border-color: var(--red);
 }
 
+.done {
+  border-color: white;
+}
+
+.notDone {
+  border-color: white;
+}
+
 .testiNappi {
   cursor: pointer;
   display: none;
