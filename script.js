@@ -47,7 +47,7 @@ function addTask(event) {
     newTask.classList.add("task-object");
     taskDiv.appendChild(newTask);
 
-    saveToLocalStorage(taskInput.value);
+    saveLocalTodos(new TODOItem(taskInput.value, UNCOMPLETED));
 
     const statusButton = document.createElement("button");
     statusButton.classList.add("complete-button");
@@ -89,6 +89,7 @@ function deleteStatus(e) {
       e.target.parentElement.classList.remove("completed-text");
       e.target.parentElement.classList.add("notCompleted-text");
     }
+    saveLocalTodos(new TaskObject(e.target.parentElement.children[0].innerText, COMPLETED));
   }
   count();
 }
@@ -248,4 +249,12 @@ function removeFromLocalStorage(todo) {
   const taskIndex = todo.children[0].innerText;
   tasks.splice(tasks.indexOf(taskIndex), 1);
   localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+
+class TaskObject {
+  constructor(text, status) {
+    this.text = text;
+    this.status = status;
+  }
 }
