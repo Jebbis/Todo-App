@@ -236,8 +236,11 @@ function getTasks() {
     taskDiv.classList.add("task", "notCompleted-text");
 
     const newTask = document.createElement("li");
-    newTask.innerText = task;
+    newTask.innerText = task.text;
     newTask.classList.add("task-object");
+    if (task.status === COMPLETED) {
+      taskDiv.classList.add("completed");
+    }
     taskDiv.appendChild(newTask);
 
     const statusButton = document.createElement("button");
