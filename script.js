@@ -38,7 +38,7 @@ function addTask(event) {
     taskInput.style.borderColor = "#EF695F";
   } else {
     errorText.style.visibility = "hidden";
-    taskInput.style.borderColor = "var(--red);";
+    taskInput.style.borderColor = "white";
     const taskDiv = document.createElement("div");
     taskDiv.classList.add("task", "notCompleted-text");
 
@@ -96,7 +96,7 @@ function deleteStatus(e) {
 function filter(e) {
   // Show not done tasks
   if (e.target.classList.contains("notDone")) {
-    e.target.style.borderColor = "red";
+    e.target.style.borderColor = "var(--red);";
     for (const i of listOfNotDoneTasks) {
       i.style.display = "flex";
     }
