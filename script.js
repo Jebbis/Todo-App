@@ -7,8 +7,6 @@ const errorText = document.querySelector(".errorText");
 const taskCounter = document.querySelector(".taskCounter");
 const clearAllTasks = document.querySelector(".clearAllTasks");
 const clearDoneTasks = document.querySelector(".clearDoneTasks");
-const activeFilter = document.querySelector(".activeFilter");
-
 
 taskSubmit.addEventListener("click", addTask);
 taskList.addEventListener("click", deleteStatus);
@@ -22,6 +20,7 @@ document.addEventListener("DOMContentLoaded", count);
 let listOfNotDoneTasks = document.getElementsByClassName("notCompleted-text");
 let listOfDoneTasks = document.getElementsByClassName("completed-text");
 let listOfAllTasks = document.getElementsByClassName("task");
+let activeFilter = document.getElementsByClassName("activeFilter");
 
 function count() {
   let number = listOfAllTasks.length - listOfDoneTasks.length;
@@ -97,10 +96,10 @@ function deleteStatus(e) {
 function filter(e) {
   // Show not done tasks
   if (e.target.classList.contains("notDone")) {
-    [].forEach.call(activeFilter, function(el) {
-      el.classList.remove("active");
-  });
-  e.target.classList.add("activeFilter");
+    // for (const i of activeFilter) {
+    //   i.classList.remove("activeFilter");
+    // }
+    // e.target.classList.add("activeFilter");
     for (const i of listOfNotDoneTasks) {
       i.style.display = "flex";
     }

@@ -160,6 +160,10 @@ form input {
   cursor: pointer;
 }
 
+.filter:active {
+  border-color: var(--red);
+}
+
 .filter:hover {
   border-color: var(--red);
 }
