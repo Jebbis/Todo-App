@@ -11,7 +11,7 @@ const clearDoneTasks = document.querySelector(".clearDoneTasks");
 taskSubmit.addEventListener("click", addTask);
 taskList.addEventListener("click", deleteStatus);
 taskFilter.addEventListener("click", filter);
-generateTests.addEventListener("click", addTest);
+//generateTests.addEventListener("click", addTest);
 clearDoneTasks.addEventListener("click", clearDone);
 clearAllTasks.addEventListener("click", clearAll);
 document.addEventListener("DOMContentLoaded", getTasks);
@@ -21,6 +21,9 @@ let listOfNotDoneTasks = document.getElementsByClassName("notCompleted-text");
 let listOfDoneTasks = document.getElementsByClassName("completed-text");
 let listOfAllTasks = document.getElementsByClassName("task");
 let activeFilter = document.getElementsByClassName("activeFilter");
+
+const UNCOMPLETED = "UNCOMPLETED";
+const COMPLETED = "COMPLETED";
 
 function count() {
   let number = listOfAllTasks.length - listOfDoneTasks.length;
@@ -282,5 +285,3 @@ class TaskObject {
   }
 }
 
-const UNCOMPLETED = "UNCOMPLETED";
-const COMPLETED = "COMPLETED";
