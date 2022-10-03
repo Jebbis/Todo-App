@@ -140,35 +140,35 @@ function filter(e) {
 }
 
 // With this you can generate 5 test tasks easily
-function addTest(event) {
-  event.preventDefault();
-  for (let i = 0; i < 5; i++) {
-    const taskDiv = document.createElement("div");
-    taskDiv.classList.add("task", "notCompleted-text");
+// function addTest(event) {
+//   event.preventDefault();
+//   for (let i = 0; i < 5; i++) {
+//     const taskDiv = document.createElement("div");
+//     taskDiv.classList.add("task", "notCompleted-text");
 
-    const newTask = document.createElement("li");
-    newTask.innerText = "test " + i;
-    newTask.classList.add("task-object");
-    taskDiv.appendChild(newTask);
+//     const newTask = document.createElement("li");
+//     newTask.innerText = "test " + i;
+//     newTask.classList.add("task-object");
+//     taskDiv.appendChild(newTask);
 
-    saveToLocalStorage(newTask.innerText);
+//     saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));
 
-    const statusButton = document.createElement("button");
-    statusButton.classList.add("complete-button");
-    taskDiv.appendChild(statusButton);
+//     const statusButton = document.createElement("button");
+//     statusButton.classList.add("complete-button");
+//     taskDiv.appendChild(statusButton);
 
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-button");
-    const deleteIcon = document.createElement("i");
-    deleteIcon.classList.add("fa", "fa-trash", "fa-2x");
-    deleteButton.appendChild(deleteIcon);
+//     const deleteButton = document.createElement("button");
+//     deleteButton.classList.add("delete-button");
+//     const deleteIcon = document.createElement("i");
+//     deleteIcon.classList.add("fa", "fa-trash", "fa-2x");
+//     deleteButton.appendChild(deleteIcon);
 
-    taskDiv.appendChild(deleteButton);
+//     taskDiv.appendChild(deleteButton);
 
-    taskList.appendChild(taskDiv);
-    count();
-  }
-}
+//     taskList.appendChild(taskDiv);
+//     count();
+//   }
+// }
 
 function clearAll() {
   let confirmAction = confirm("Are you sure you want to delete ALL task?");
