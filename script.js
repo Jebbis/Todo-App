@@ -239,12 +239,15 @@ function getTasks() {
     newTask.innerText = task.text;
     newTask.classList.add("task-object");
     if (task.status === COMPLETED) {
-      taskDiv.classList.add("completed");
+      taskDiv.classList.add("notCompleted");
     }
     taskDiv.appendChild(newTask);
 
     const statusButton = document.createElement("button");
     statusButton.classList.add("complete-button");
+    if (task.status === COMPLETED) {
+      statusButton.classList.add("completed");
+    }
     taskDiv.appendChild(statusButton);
 
     const deleteButton = document.createElement("button");
