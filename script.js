@@ -206,19 +206,19 @@ function saveToLocalStorage(task) {
   }
   
   const itemIndex = tasks.findIndex((element, index) => {
-    if (element.text === todo.text) {
+    if (element.text === task.text) {
       return true;
     }
   });
   if (itemIndex == -1) {
-    tasks.push(todo);
+    tasks.push(task);
   } else {
     if (tasks[itemIndex].status === COMPLETED) {
-      todo.status = UNCOMPLETED;
+      task.status = UNCOMPLETED;
     } else if (tasks[itemIndex].status === UNCOMPLETED) {
-      todo.status = COMPLETED;
+      task.status = COMPLETED;
     }
-    tasks[itemIndex] = todo;
+    tasks[itemIndex] = task;
   }
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
