@@ -164,6 +164,10 @@ form input {
   border-color: var(--red);
 }
 
+.all {
+  border-color: var(--red);
+}
+
 .testiNappi {
   cursor: pointer;
   display: none;
