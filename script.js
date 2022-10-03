@@ -47,7 +47,7 @@ function addTask(event) {
     newTask.classList.add("task-object");
     taskDiv.appendChild(newTask);
 
-    saveToLocalStorage(new TODOItem(taskInput.value, UNCOMPLETED));
+    saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));
 
     const statusButton = document.createElement("button");
     statusButton.classList.add("complete-button");
