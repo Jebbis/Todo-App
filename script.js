@@ -202,10 +202,10 @@ function clearDone() {
 
 function saveToLocalStorage(task) {
   let tasks;
-  if (localStorage.getItem("tasks") === null) {
+  if (localStorage.getItem("tasks") === null) { 
     tasks = [];
   } else {
-    tasks = JSON.parse(localStorage.getItem("tasks"));
+    tasks = JSON.parse(localStorage.getItem("tasks")); 
   }
   
   const itemIndex = tasks.findIndex((element, index) => {
