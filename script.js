@@ -26,6 +26,10 @@ function count() {
   taskCounter.innerHTML = "Open tasks: " + number;
 }
 
+function showDevTestButton() {
+  generateTests.style.display = "flex";
+}
+
 function addTask(event) {
   event.preventDefault();
   if (taskInput.value == "") {
