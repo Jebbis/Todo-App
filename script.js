@@ -38,7 +38,7 @@ function addTask(event) {
     taskInput.style.borderColor = "#EF695F";
   } else {
     errorText.style.visibility = "hidden";
-    taskInput.style.borderColor = "white";
+    taskInput.style.borderColor = "var(--red);";
     const taskDiv = document.createElement("div");
     taskDiv.classList.add("task", "notCompleted-text");
 
