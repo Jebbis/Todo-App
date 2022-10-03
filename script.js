@@ -30,9 +30,9 @@ function count() {
   taskCounter.innerHTML = "Open tasks: " + number;
 }
 
-function showDevTestButton() {
-  generateTests.style.display = "flex";
-}
+// function showDevTestButton() {
+//   generateTests.style.display = "flex";
+// }
 
 function addTask(event) {
   event.preventDefault();
@@ -224,6 +224,7 @@ function saveToLocalStorage(task) {
     tasks[itemIndex] = task;
   }
   localStorage.setItem("tasks", JSON.stringify(tasks));
+  console.log('itemIndex');
 }
 
 function getTasks() {
