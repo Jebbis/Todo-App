@@ -7,6 +7,7 @@ const errorText = document.querySelector(".errorText");
 const taskCounter = document.querySelector(".taskCounter");
 const clearAllTasks = document.querySelector(".clearAllTasks");
 const clearDoneTasks = document.querySelector(".clearDoneTasks");
+const activeFilter = document.querySelector(".activeFilter");
 
 
 taskSubmit.addEventListener("click", addTask);
@@ -96,7 +97,10 @@ function deleteStatus(e) {
 function filter(e) {
   // Show not done tasks
   if (e.target.classList.contains("notDone")) {
-    e.target.style.borderColor = 'var(--red)';
+    [].forEach.call(activeFilter, function(el) {
+      el.classList.remove("active");
+  });
+  e.target.classList.add("activeFilter");
     for (const i of listOfNotDoneTasks) {
       i.style.display = "flex";
     }

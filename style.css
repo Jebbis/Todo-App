@@ -164,17 +164,10 @@ form input {
   border-color: var(--red);
 }
 
-.all {
+.activeFilter {
   border-color: var(--red);
 }
 
-.done {
-  border-color: white;
-}
-
-.notDone {
-  border-color: white;
-}
 
 .testiNappi {
   cursor: pointer;
