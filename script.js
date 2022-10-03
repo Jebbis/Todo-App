@@ -224,7 +224,6 @@ function saveToLocalStorage(task) {
     tasks[itemIndex] = task;
   }
   localStorage.setItem("tasks", JSON.stringify(tasks));
-  console.log('itemIndex');
 }
 
 function getTasks() {
