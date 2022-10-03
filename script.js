@@ -259,3 +259,6 @@ class TaskObject {
     this.status = status;
   }
 }
+
+const UNCOMPLETED = "UNCOMPLETED";
+const COMPLETED = "COMPLETED";
