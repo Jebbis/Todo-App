@@ -92,8 +92,8 @@ function deleteStatus(e) {
       e.target.parentElement.classList.remove("completed-text");
       e.target.parentElement.classList.add("notCompleted-text");
     }
-    if (e.target.classList.contains("uncompleted-temp")) {
-      e.target.classList.remove("uncompleted-temp");
+    if (e.target.parentElement.classList.contains("uncompleted-temp")) {
+      e.target.parentElement.classList.remove("uncompleted-temp");
     }
     saveToLocalStorage(new TaskObject(e.target.parentElement.children[0].innerText, COMPLETED));
 
