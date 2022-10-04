@@ -94,6 +94,7 @@ function deleteStatus(e) {
     }
     if (e.target.parentElement.classList.contains("uncompleted-temp")) {
       e.target.parentElement.classList.remove("uncompleted-temp");
+      filter(e);
     }
     saveToLocalStorage(new TaskObject(e.target.parentElement.children[0].innerText, COMPLETED));
 
