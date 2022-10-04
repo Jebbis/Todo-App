@@ -11,7 +11,6 @@ const clearDoneTasks = document.querySelector(".clearDoneTasks");
 taskSubmit.addEventListener("click", addTask);
 taskList.addEventListener("click", deleteStatus);
 taskFilter.addEventListener("click", filter);
-//generateTests.addEventListener("click", addTest);
 clearDoneTasks.addEventListener("click", clearDone);
 clearAllTasks.addEventListener("click", clearAll);
 document.addEventListener("DOMContentLoaded", getTasks);
@@ -25,21 +24,18 @@ let activeFilter = document.getElementsByClassName("activeFilter");
 const UNCOMPLETED = "UNCOMPLETED";
 const COMPLETED = "COMPLETED";
 
-function count() {
+function count() {            // Calculate how many tasks are notDone 
   let number = listOfAllTasks.length - listOfDoneTasks.length;
   taskCounter.innerHTML = "Open tasks: " + number;
 }
 
-// function showDevTestButton() {
-//   generateTests.style.display = "flex";
-// }
 
-function addTask(event) {
+function addTask(event) {       // Add new task and creating the elements 
   event.preventDefault();
-  if (taskInput.value == "") {
+  if (taskInput.value == "") { // Show error message + highlight border if input is empty
     errorText.style.visibility = "visible";
     taskInput.style.borderColor = "#EF695F";
-  } else {
+  } else {                    // If input is not empty create new task
     errorText.style.visibility = "hidden";
     taskInput.style.borderColor = "white";
     const taskDiv = document.createElement("div");
@@ -50,7 +46,7 @@ function addTask(event) {
     newTask.classList.add("task-object");
     taskDiv.appendChild(newTask);
 
-    saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));
+    saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));   //Save task object to local storage 
 
     const statusButton = document.createElement("button");
     statusButton.classList.add("complete-button");
@@ -65,22 +61,22 @@ function addTask(event) {
 
     taskList.appendChild(taskDiv);
 
-    taskInput.value = "";
+    taskInput.value = "";             //Clear user input from text form after task is created
     count();
   }
 }
 
-function deleteStatus(e) {
-  if (e.target.classList.contains("delete-button")) {
+function deleteStatus(e) {            // Change status to done or notDone. Delete button to remove task
+  if (e.target.classList.contains("delete-button")) {     // If delete button is pressed ask confirmation for delete
     let confirmAction = confirm("Are you sure you want to delete this task?");
     if (confirmAction) {
       e.target.parentElement.remove();
-      removeFromLocalStorage(e.target.parentElement);
+      removeFromLocalStorage(e.target.parentElement);     //Delete the task from storage
     } else {
-      return;
+      return;                                             //If user pressed cancel to confirmation, nothing happens
     }
   }
-  if (e.target.classList.contains("complete-button")) {
+  if (e.target.classList.contains("complete-button")) {   //If status button is pressed, add and remove classes to update them visually
     if (!e.target.classList.contains("completed")) {
       e.target.classList.remove("uncompleted");
       e.target.classList.add("completed");
@@ -96,14 +92,15 @@ function deleteStatus(e) {
       e.target.parentElement.classList.remove("uncompleted-temp");
       e.target.parentElement.style.display = "none";
     }
-    saveToLocalStorage(new TaskObject(e.target.parentElement.children[0].innerText, COMPLETED));
+    saveToLocalStorage(new TaskObject(e.target.parentElement.children[0].innerText, COMPLETED));    //Updating the storage for status change
 
   }
   count();
 }
 
+// Filter what tasks are shown
 function filter(e) {
-  // Show not done tasks
+  // Show not done tasks and change the classes to show them correctly
   if (e.target.classList.contains("notDone")) {
      for (const i of activeFilter) {
        i.classList.remove("activeFilter");
@@ -116,7 +113,7 @@ function filter(e) {
       i.style.display = "none";
       i.classList.remove("uncompleted-temp");
     }
-    // Show done tasks
+    // Show done tasks and change the classes to show them correctly
   }
   if (e.target.classList.contains("done")) {
     for (const i of activeFilter) {
@@ -130,7 +127,7 @@ function filter(e) {
       i.classList.add("uncompleted-temp");
       i.style.display = "flex";
     }
-    // Show all tasks
+    // Show all tasks and change the classes to show them correctly
   }
   if (e.target.classList.contains("all")) {
     for (const i of activeFilter) {
@@ -146,42 +143,13 @@ function filter(e) {
   }
 }
 
-// With this you can generate 5 test tasks easily
-// function addTest(event) {
-//   event.preventDefault();
-//   for (let i = 0; i < 5; i++) {
-//     const taskDiv = document.createElement("div");
-//     taskDiv.classList.add("task", "notCompleted-text");
 
-//     const newTask = document.createElement("li");
-//     newTask.innerText = "test " + i;
-//     newTask.classList.add("task-object");
-//     taskDiv.appendChild(newTask);
 
-//     saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));
-
-//     const statusButton = document.createElement("button");
-//     statusButton.classList.add("complete-button");
-//     taskDiv.appendChild(statusButton);
-
-//     const deleteButton = document.createElement("button");
-//     deleteButton.classList.add("delete-button");
-//     const deleteIcon = document.createElement("i");
-//     deleteIcon.classList.add("fa", "fa-trash", "fa-2x");
-//     deleteButton.appendChild(deleteIcon);
-
-//     taskDiv.appendChild(deleteButton);
-
-//     taskList.appendChild(taskDiv);
-//     count();
-//   }
-// }
-
-function clearAll() {
+function clearAll() {                           //Clear ALL tasks, ask confirmation before deleting
   let confirmAction = confirm("Are you sure you want to delete ALL task?");
   if (confirmAction) {
     let length = listOfAllTasks.length;
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {         // Loop through the list of ALL tasks and remove them
       removeFromLocalStorage(listOfAllTasks[0]);
       listOfAllTasks[0].remove();
     }
@@ -191,11 +159,11 @@ function clearAll() {
   count();
 }
 
-function clearDone() {
+function clearDone() {                           //Clear DONE tasks, ask confirmation before deleting
   let confirmAction = confirm("Are you sure you want to delete ALL done task?");
   if (confirmAction) {
     let length = listOfDoneTasks.length;
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {         // Loop through the list of DONE tasks and remove them
       removeFromLocalStorage(listOfDoneTasks[0]);
       listOfDoneTasks[0].remove();
     }
@@ -204,15 +172,15 @@ function clearDone() {
   }
 }
 
-function saveToLocalStorage(task) {
+function saveToLocalStorage(task) {           //Saving the tasks to localstorage
   let tasks;
-  if (localStorage.getItem("tasks") === null) { 
+if (localStorage.getItem("tasks") === null) {     //If "tasks" storage is empty create new empty array
     tasks = [];
   } else {
-    tasks = JSON.parse(localStorage.getItem("tasks")); 
+    tasks = JSON.parse(localStorage.getItem("tasks"));  //Get tasks/"items" from "tasks" storage 
   }
   
-  const itemIndex = tasks.findIndex((element, index) => {
+  const itemIndex = tasks.findIndex((element, index) => {       //Checking if the task is already in the storage
     if (element.text === task.text) {
       return true;
     }
@@ -221,16 +189,16 @@ function saveToLocalStorage(task) {
     tasks.push(task);
   } else {
     if (tasks[itemIndex].status === COMPLETED) {
-      task.status = UNCOMPLETED;
-    } else if (tasks[itemIndex].status === UNCOMPLETED) {
       task.status = COMPLETED;
+    } else if (tasks[itemIndex].status === UNCOMPLETED) {
+      task.status = UNCOMPLETED;
     }
     tasks[itemIndex] = task;
   }
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-function getTasks() {
+function getTasks() {                 //Load tasks from the storage and recreating them with same principle when user adds them manually
   let tasks;
   if (localStorage.getItem("tasks") === null) {
     tasks = [];
@@ -243,9 +211,9 @@ function getTasks() {
     taskDiv.classList.add("task", "notCompleted-text");
 
     const newTask = document.createElement("li");
-    newTask.innerText = task.text;
+    newTask.innerText = task.text;                          //InnerText is loaded from storage and not from user input
     newTask.classList.add("task-object");
-    if (task.status === COMPLETED) {
+    if (task.status === COMPLETED) {                        // Checking the task status of task and adding proper classes to them
       taskDiv.classList.add("completed-text");
       taskDiv.classList.remove("notCompleted-text");
     }
@@ -253,7 +221,7 @@ function getTasks() {
 
     const statusButton = document.createElement("button");
     statusButton.classList.add("complete-button");
-    if (task.status === COMPLETED) {
+    if (task.status === COMPLETED) {                        // Checking the task status of task and adding proper classes to them
       statusButton.classList.add("completed");
     }
     taskDiv.appendChild(statusButton);
@@ -269,20 +237,20 @@ function getTasks() {
   });
 }
 
-function removeFromLocalStorage(todo) {
+function removeFromLocalStorage(todo) {       //Removing the task from localstorage
   let tasks;
   if (localStorage.getItem("tasks") === null) {
     tasks = [];
   } else {
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
-  const taskIndex = todo.children[0].innerText;
-  tasks.splice(tasks.indexOf(taskIndex), 1);
+  const taskIndex = todo.children[0].innerText;     //Finding the task's index from tasks storage
+  tasks.splice(tasks.indexOf(taskIndex), 1);        //From what index we delete and how many tasks we delete
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 
-class TaskObject {
+class TaskObject {                          //Task object which has two parameter text = task text, status = done or not done
   constructor(text, status) {
     this.text = text;
     this.status = status;
