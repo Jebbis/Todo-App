@@ -189,9 +189,9 @@ function saveToLocalStorage(task) {           //Saving the tasks to localstorage
     tasks.push(task);
   } else {
     if (tasks[itemIndex].status === COMPLETED) {
-      task.status = COMPLETED;
-    } else if (tasks[itemIndex].status === UNCOMPLETED) {
       task.status = UNCOMPLETED;
+    } else if (tasks[itemIndex].status === UNCOMPLETED) {
+      task.status = COMPLETED;
     }
     tasks[itemIndex] = task;
   }
