@@ -49,6 +49,8 @@ function addTask(event) {       // Add news task and creating the elements
 
     if(!checkIfInStorage(taskInput.value, UNCOMPLETED)) {
       saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));
+    } else {
+      break;
     }
        //Save task object to local storage 
 
