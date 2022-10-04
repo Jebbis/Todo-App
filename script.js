@@ -47,11 +47,9 @@ function addTask(event) {       // Add news task and creating the elements
     newTask.classList.add("task-object");
     taskDiv.appendChild(newTask);
 
-    if(!checkIfInStorage(taskInput.value, UNCOMPLETED)) {
+    
       saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));
-    } else {
-      break;
-    }
+    
        //Save task object to local storage 
 
     const statusButton = document.createElement("button");
@@ -72,23 +70,7 @@ function addTask(event) {       // Add news task and creating the elements
   }
 }
 
-function checkIfInStorage(task) {
-  let tasks;
-  if (localStorage.getItem("tasks") === null) {      //If "tasks" storage is empty create new empty array
-    tasks = [];
-  } else {
-    tasks = JSON.parse(localStorage.getItem("tasks"));   //Get tasks/"items" from "tasks" storage
-  }
-  
-  const itemIndex = tasks.findIndex((element, index) => {       //Checking if the task is already in the storage
-    if (element.text === task.text) {
-      return true;
-    }
-  });
-  if (itemIndex == 1) {
-    return true;
-  }
-}
+
             // Change status to done or notDone. Delete button to remove task
 function deleteStatus(e) {     // If delete button is pressed ask confirmation for delete
   if (e.target.classList.contains("delete-button")) {
