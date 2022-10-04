@@ -192,6 +192,7 @@ function saveToLocalStorage(task) {           //Saving the tasks to localstorage
   });
   if (itemIndex == -1) {
     tasks.push(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   } else {
     // if (tasks[itemIndex].status === COMPLETED) {
     //   task.status = UNCOMPLETED;
@@ -199,9 +200,9 @@ function saveToLocalStorage(task) {           //Saving the tasks to localstorage
     //   task.status = COMPLETED;
     // }
     // tasks[itemIndex] = task;
-    tasks.push(task);
+    return;
   }
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  
 }
 
 
