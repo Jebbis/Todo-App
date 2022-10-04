@@ -199,7 +199,7 @@ function saveToLocalStorage(task) {           //Saving the tasks to localstorage
     //   task.status = COMPLETED;
     // }
     // tasks[itemIndex] = task;
-    return;
+    tasks.push(task);
   }
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
