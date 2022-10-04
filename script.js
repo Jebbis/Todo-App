@@ -47,7 +47,10 @@ function addTask(event) {       // Add news task and creating the elements
     newTask.classList.add("task-object");
     taskDiv.appendChild(newTask);
 
-    saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));   //Save task object to local storage 
+    if(!checkIfInStorage(new TaskObject(taskInput.value, UNCOMPLETED))) {
+      saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));
+    }
+       //Save task object to local storage 
 
     const statusButton = document.createElement("button");
     statusButton.classList.add("complete-button");
@@ -64,6 +67,24 @@ function addTask(event) {       // Add news task and creating the elements
 
     taskInput.value = "";
     count();
+  }
+}
+
+function checkIfInStorage(task) {
+  let tasks;
+  if (localStorage.getItem("tasks") === null) {      //If "tasks" storage is empty create new empty array
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));   //Get tasks/"items" from "tasks" storage
+  }
+  
+  const itemIndex = tasks.findIndex((element, index) => {       //Checking if the task is already in the storage
+    if (element.text === task.text) {
+      return true;
+    }
+  });
+  if (itemIndex == 1) {
+    return true;
   }
 }
             // Change status to done or notDone. Delete button to remove task
@@ -197,6 +218,8 @@ function saveToLocalStorage(task) {           //Saving the tasks to localstorage
   }
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+
 
 function getTasks() {                 //Load tasks from the storage and recreating them with same principle when user adds them manually
   let tasks;
