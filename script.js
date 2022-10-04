@@ -193,12 +193,13 @@ function saveToLocalStorage(task) {           //Saving the tasks to localstorage
   if (itemIndex == -1) {
     tasks.push(task);
   } else {
-    if (tasks[itemIndex].status === COMPLETED) {
-      task.status = UNCOMPLETED;
-    } else if (tasks[itemIndex].status === UNCOMPLETED) {
-      task.status = COMPLETED;
-    }
-    tasks[itemIndex] = task;
+    // if (tasks[itemIndex].status === COMPLETED) {
+    //   task.status = UNCOMPLETED;
+    // } else if (tasks[itemIndex].status === UNCOMPLETED) {
+    //   task.status = COMPLETED;
+    // }
+    // tasks[itemIndex] = task;
+    return;
   }
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
