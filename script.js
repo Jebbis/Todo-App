@@ -11,7 +11,6 @@ const clearDoneTasks = document.querySelector(".clearDoneTasks");
 taskSubmit.addEventListener("click", addTask);
 taskList.addEventListener("click", deleteStatus);
 taskFilter.addEventListener("click", filter);
-//generateTests.addEventListener("click", addTest);
 clearDoneTasks.addEventListener("click", clearDone);
 clearAllTasks.addEventListener("click", clearAll);
 document.addEventListener("DOMContentLoaded", getTasks);
@@ -30,9 +29,7 @@ function count() {
   taskCounter.innerHTML = "Open tasks: " + number;
 }
 
-// function showDevTestButton() {
-//   generateTests.style.display = "flex";
-// }
+
 
 function addTask(event) {
   event.preventDefault();
@@ -146,36 +143,7 @@ function filter(e) {
   }
 }
 
-// With this you can generate 5 test tasks easily
-// function addTest(event) {
-//   event.preventDefault();
-//   for (let i = 0; i < 5; i++) {
-//     const taskDiv = document.createElement("div");
-//     taskDiv.classList.add("task", "notCompleted-text");
 
-//     const newTask = document.createElement("li");
-//     newTask.innerText = "test " + i;
-//     newTask.classList.add("task-object");
-//     taskDiv.appendChild(newTask);
-
-//     saveToLocalStorage(new TaskObject(taskInput.value, UNCOMPLETED));
-
-//     const statusButton = document.createElement("button");
-//     statusButton.classList.add("complete-button");
-//     taskDiv.appendChild(statusButton);
-
-//     const deleteButton = document.createElement("button");
-//     deleteButton.classList.add("delete-button");
-//     const deleteIcon = document.createElement("i");
-//     deleteIcon.classList.add("fa", "fa-trash", "fa-2x");
-//     deleteButton.appendChild(deleteIcon);
-
-//     taskDiv.appendChild(deleteButton);
-
-//     taskList.appendChild(taskDiv);
-//     count();
-//   }
-// }
 
 function clearAll() {
   let confirmAction = confirm("Are you sure you want to delete ALL task?");
