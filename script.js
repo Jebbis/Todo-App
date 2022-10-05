@@ -226,9 +226,11 @@ function saveToLocalStorage(task) {
       return true;
     }
   });
-  if (itemIndex == -1) { //-1 indicates that the object is not same 
-    tasks.push(task); //Save task to the storage
-  } else { //Change the status of task in local storage
+  if (itemIndex == -1) {
+    //-1 indicates that the compared object is not same
+    tasks.push(task); //Save new task to the storage
+  } else {
+    //Update task status in storage
     if (tasks[itemIndex].status === COMPLETED) {
       task.status = UNCOMPLETED;
     } else if (tasks[itemIndex].status === UNCOMPLETED) {
