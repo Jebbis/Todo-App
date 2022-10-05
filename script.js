@@ -228,7 +228,7 @@ function saveToLocalStorage(task) {
   });
   if (itemIndex == -1) { //-1 indicates that the object is not same 
     tasks.push(task); //Save task to the storage
-  } else {
+  } else { //Change the status of task in local storage
     if (tasks[itemIndex].status === COMPLETED) {
       task.status = UNCOMPLETED;
     } else if (tasks[itemIndex].status === UNCOMPLETED) {
