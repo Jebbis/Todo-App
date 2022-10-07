@@ -104,8 +104,8 @@ function deleteStatus(e) {
   if (e.target.classList.contains("delete-button")) {
     let confirmAction = confirm("Are you sure you want to delete this task?");
     if (confirmAction) {
-      e.target.parentElement.remove(); //Delete the task from storage
       removeFromLocalStorage(e.target.parentElement);
+      e.target.parentElement.remove(); //Delete the task from storage
     } else {
       //If user pressed cancel to confirmation, nothing happens
       return;
@@ -292,7 +292,7 @@ function removeFromLocalStorage(task) {
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
    const taskIndex = task.children[0].innerText; //Finding the task's index from tasks
-  console.log(task.innerHTML);
+  console.log(task.children.innerHTML);
   //const taskIndex = tasks.findIndex(i => i.text === task.text);
   console.log(taskIndex);
   tasks.splice(tasks.indexOf(taskIndex), 1); //From what index we delete and how many tasks we delete
