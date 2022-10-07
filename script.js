@@ -291,7 +291,7 @@ function removeFromLocalStorage(task) {
   } else {
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
-   const taskIndex = todo.children[0].innerText; //Finding the task's index from tasks
+   const taskIndex = task.children[0].innerText; //Finding the task's index from tasks
   console.log(task);
   //const taskIndex = tasks.findIndex(i => i.text === task.text);
   console.log(taskIndex);
