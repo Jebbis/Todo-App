@@ -291,9 +291,9 @@ function removeFromLocalStorage(task) {
   } else {
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
-   const taskIndex = task.children[0].innerText; //Finding the task's index from tasks
-  console.log(task.children.innerHTML);
-  //const taskIndex = tasks.findIndex(i => i.text === task.text);
+  //const taskIndex = task.children[0].innerText; //Finding the task's index from tasks
+  console.log(task);
+  const taskIndex = tasks.findIndex(i => i.text === task.children[0].innerText);
   console.log(taskIndex);
   tasks.splice(tasks.indexOf(taskIndex), 1); //From what index we delete and how many tasks we delete
   localStorage.setItem("tasks", JSON.stringify(tasks));
