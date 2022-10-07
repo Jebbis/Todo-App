@@ -283,7 +283,7 @@ function getTasks() {
   });
 }
 
-function removeFromLocalStorage(todo) {
+function removeFromLocalStorage(task) {
   //Removing the task from localstorage
   let tasks;
   if (localStorage.getItem("tasks") === null) {
@@ -291,8 +291,9 @@ function removeFromLocalStorage(todo) {
   } else {
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
-  // const taskIndex = todo.children[0].innerText; //Finding the task's index from tasks 
-  const taskIndex = tasks.findIndex(todo);
+   const taskIndex = todo.children[0].innerText; //Finding the task's index from tasks
+  console.log(task);
+  //const taskIndex = tasks.findIndex(i => i.text === task.text);
   console.log(taskIndex);
   tasks.splice(tasks.indexOf(taskIndex), 1); //From what index we delete and how many tasks we delete
   localStorage.setItem("tasks", JSON.stringify(tasks));
